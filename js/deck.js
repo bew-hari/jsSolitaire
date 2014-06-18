@@ -30,7 +30,7 @@ function Deck(){
         var tempCard;
 
         for (var i = numCards - 1; i > 0; i--){
-            rand = Math.random()*i;
+            rand = Math.ceil(Math.random()*i);
             tempCard = cards[i];
             cards[i] = cards[rand];
             cards[rand] = tempCard;
