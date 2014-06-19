@@ -4,5 +4,6 @@
 
 window.onload = function(){
     var game = new Spider();
-    //game.setup();
+    game.setup();
+    game.testDeal();
 };

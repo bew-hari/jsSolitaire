@@ -14,9 +14,9 @@ function Deck(){
 
         var n = 0;
         while(numOfCards > 0){
-            for (var i = 0; i < numSuit; i++){
-                for (var j = 0; j < numRank; j++){
-                    cards[n] = new Card(j+1,i+1);
+            for (var i = 1; i <= numSuit; i++){
+                for (var j = 1; j <= numRank; j++){
+                    cards[n] = new Card(j,i);
                     n++;
                     numOfCards--;
                     if (numOfCards == 0) break;

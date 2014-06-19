@@ -19,7 +19,8 @@ body {
 }
 
 .spiderPlayAreaCol {
-
+    position: relative;
+    min-width: 80px;
 }
 
 #spiderDealArea {
@@ -32,4 +33,12 @@ body {
 
 #spiderDealAreaCol2 {
 
+}
+
+.testCard {
+    position: absolute;
+    min-width: 70px;
+    min-height: 100px;
+    background-color: red;
+    border: 1px solid black;
 }
