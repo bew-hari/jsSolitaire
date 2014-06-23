@@ -39,6 +39,8 @@ body {
     position: absolute;
     min-width: 70px;
     min-height: 100px;
-    background-color: red;
     border: 1px solid black;
 }
+
+.testCardUp {background-color: white;}
+.testCardDown {background-color: red;}

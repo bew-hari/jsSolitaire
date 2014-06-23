@@ -5,10 +5,23 @@
 function Spider(){
     var self = this;
     var dealCols = 10;
-    var deck = new Deck();
-
-    deck.setup(104,13,1);
+    var deck = new Deck(104,13,1);
     deck.shuffle();
+
+    var board = new Array(dealCols);
+    for (var i = 0; i < dealCols; i++)
+        board[i] = new CardStack();
+
+    var deal = function(){
+        var cardsToDeal = 44;
+        while (cardsToDeal){
+            for (var i = 0; i < dealCols; i++){
+                board[i].push(deck.dealCard());
+
+                if (--cardsToDeal == 0) break;
+            }
+        }
+    };
 
     self.setup = function(){
         var canvas = document.getElementById("solitaireCanvas");
@@ -38,11 +51,15 @@ function Spider(){
         var cardsLeft = 44;
         var offset = 0;
         while (cardsLeft){
-            for (var i = 0; i < 10; i++){
+            for (var i = 0; i < dealCols; i++){
                 var card = document.createElement("div");
                 card.setAttribute("draggable","true");
                 card.setAttribute("ondragstart","drag(event)");
                 card.className = "testCard";
+                if (cardsLeft <= 10)
+                    card.classList.add("testCardUp");
+                else
+                    card.classList.add("testCardDown");
                 card.style.top = offset + "px";
                 document.getElementById("spiderPlayAreaCol"+i).appendChild(card);
                 if (--cardsLeft == 0) break;
@@ -50,8 +67,7 @@ function Spider(){
             offset += 20;
         }
     };
+
+
 }
 
-function drag(ev){
-    
-}
